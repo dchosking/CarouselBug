@@ -9,7 +9,7 @@
                 <ContentPage Title="Menu">
                     <StackLayout >
                         <Label Text="Hello" />
-                        <Button Text="Home" Command="{Binding NavigateCommand}" CommandParameter="Navigation/TabbedContainerPage" />                        
+                        <Button Text="Home" Command="{Binding NavigateCommand}" CommandParameter="Navigation/HomePage" />                        
                         <Button Text="Edit Profile" Command="{Binding NavigateCommand}" CommandParameter="Navigation/EditProfilePage" />                     
                     </StackLayout>
                 </ContentPage>
