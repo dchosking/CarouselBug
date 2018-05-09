@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+                x:Class="ExampleCarousel.Controls.HomePageCarousel">
+    
+    <controls:CarouselViewControl Orientation="Horizontal" x:Name="myCarouselView" InterPageSpacing="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <controls:CarouselViewControl.ItemTemplate>
+            <DataTemplate>
+                <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" ></StackLayout>
+            </DataTemplate>
+        </controls:CarouselViewControl.ItemTemplate>
+    </controls:CarouselViewControl>
+
+
+</RelativeLayout>

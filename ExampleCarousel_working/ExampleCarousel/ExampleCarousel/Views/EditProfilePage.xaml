@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExampleCarousel.Views.EditProfilePage"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             Title="User Profile">
+    <ScrollView>
+        <Grid Padding="20" ColumnSpacing="10" RowSpacing="20" WidthRequest="500" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="64"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackLayout Grid.Row="0"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 HorizontalOptions="FillAndExpand"
+                 Margin="12">
+
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <ffimageloading:CachedImage HorizontalOptions="Center" VerticalOptions="Center"
+                        LoadingPlaceholder="loading.png" ErrorPlaceholder="error.png" DownsampleToViewSize="true"
+                        Aspect="AspectFit" HeightRequest="400" WidthRequest="400" Source="{Binding ProfilePicture}">          
+                        <ffimageloading:CachedImage.Transformations>
+                            <fftransformations:CircleTransformation/>
+                        </ffimageloading:CachedImage.Transformations>
+                    </ffimageloading:CachedImage>
+                </StackLayout>
+            
+            <Label Text="Full Name*" />
+            <Entry Text="{Binding Fullname, Mode=TwoWay}" Placeholder="Full Name" Margin="0,0,0,8"/>
+            <Label Text="Contact Email*" />
+            <Entry Text="{Binding Email, Mode=TwoWay}" Placeholder="Email" Margin="0,0,0,8"/>
+            <Label Text="Password*" />
+            <Entry Text="{Binding Password, Mode=TwoWay}" IsPassword="True" Placeholder="Password" Margin="0,0,0,8"/>
+            <Label Text="Birthdate" />
+            <DatePicker VerticalOptions="CenterAndExpand" MinimumDate="01/01/1900" MaximumDate="01/01/2050" Date="{Binding Birthday, Mode=TwoWay}" Margin="0,0,0,8">
+            </DatePicker>
+            <Label Text="Gender" />
+            <Picker SelectedItem="{Binding Gender, Mode=TwoWay}" Margin="0,0,0,8">
+                    <Picker.Items>
+                        <x:String>Female</x:String>
+                        <x:String>Male</x:String>
+                    </Picker.Items>
+                </Picker>
+
+            <Label Text="Enable Notifications" />
+            <Switch  IsToggled="{Binding EnableNotifications}" />
+            
+        </StackLayout>
+        
+    </Grid>
+    </ScrollView>
+</ContentPage>
+        
